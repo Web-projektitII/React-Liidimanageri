@@ -1,1 +1,1 @@
-# React-Liidimanageri
+# React-Liidimanageri, harjoitus
