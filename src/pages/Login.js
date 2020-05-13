@@ -1,24 +1,28 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
-import logoImg from "../img/logo.jpg";
+import logoImg from "../img/omnia_logo.png";
 import { Card, Logo, Form, Input, Button, Error } from "../components/AuthForms";
 import { useAuth } from "../context/auth";
 
 function Login(props) {
+  /* console.log(props); */
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
-  const referer = props.location.state.referer || '/';
+  var referer = '/';
+  if (props && props.location.state){
+    referer = props.location.state.referer || '/';
+  }  
 
   function postLogin() {
-    axios.post("https://www.somePlace.com/auth/login", {
-      userName,
+    axios.post("http://localhost:5000/auth/signin", {
+      'email':username,
       password
     }).then(result => {
-      if (result.status === 200) {
+      if (result.status === 200 && result.data === "OK") {
         setAuthTokens(result.data);
         setLoggedIn(true);
       } else {
@@ -38,10 +42,10 @@ function Login(props) {
       <Logo src={logoImg} />
       <Form>
         <Input
-          type="username"
-          value={userName}
+          type="email"
+          value={username}
           onChange={e => {
-            setUserName(e.target.value);
+            setUsername(e.target.value);
           }}
           placeholder="email"
         />
