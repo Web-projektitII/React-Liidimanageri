@@ -22,7 +22,7 @@ function Login(props) {
       'email':username,
       password
     }).then(result => {
-      if (result.status === 200) {
+      if (result.status === 200 && result.data === "OK") {
         setAuthTokens(result.data);
         setLoggedIn(true);
       } else {

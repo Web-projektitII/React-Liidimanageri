@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
-import logoImg from "../img/logo.jpg";
+import logoImg from "../img/omnia_logo.png";
 import { Card, Logo, Form, Input, Button, Error } from "../components/AuthForms";
 
 function Signup(props) {

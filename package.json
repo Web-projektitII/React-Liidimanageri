@@ -1,5 +1,6 @@
 {
-  "name": "learning-react",
+  "name": "react-sovellusmalli",
+  "homepage": "http://localhost/react-liidimanageri/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
