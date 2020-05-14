@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import {PrivateLink,PublicLink} from '../Links';
 
 function NavigationMenu(props){
-
     return (
         <div>
             <div className="font-bold py-3">
@@ -28,31 +28,31 @@ function NavigationMenu(props){
                     </Link>
                 </li>
                 <li>
-                    <Link 
+                    <PublicLink 
                         to="/login" 
                         className="text-blue-500 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
                         Login
-                    </Link>
+                    </PublicLink>
                 </li>
                 <li>
-                    <Link 
+                    <PublicLink 
                         to="/signup" 
                         className="text-blue-500 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
                         Signup 
-                    </Link>
+                    </PublicLink>
                 </li>
                 <li>
-                    <Link 
+                    <PrivateLink 
                         to="/admin" 
                         className="text-blue-500 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
-                        Admin 
-                    </Link>
+                        Administraattori 
+                    </PrivateLink>
                 </li>
             </ul>
         </div>
