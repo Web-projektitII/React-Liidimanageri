@@ -12,23 +12,27 @@ import Home from './Views/Home';
 import About from './Views/About';
 import Product from './Views/Product';
 
+
 function App(props) {
-  const [authTokens, setAuthTokens] = useState();
-  
+  const [authTokens, setAuthTokens] = useState(sessionStorage.getItem('tokens') || '');
+    
   const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
+    /*let sessionToken = sessionStorage.getItem('tokens') || ''
+    console.log("setTokens,data:"+data+",sessionToken:"+sessionToken)*/
+    sessionStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
   }
 
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+      {/*console.log("Provider,authTokens:"+authTokens)*/}
       <div className="relative pb-10 min-h-screen">
       <Router>
         <Header />
         <div className="p-3">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
+            <Route path="/react-liidimanageri/about" component={About} />
             <Route path="/products/:id" component={Product} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 function NavigationMenu(props){
+
     return (
         <div>
             <div className="font-bold py-3">
@@ -19,7 +20,7 @@ function NavigationMenu(props){
                 </li>
                 <li>
                     <Link 
-                        to="/about" 
+                        to="/react-liidimanageri/about" 
                         className="text-blue-500 py-3 border-b block"
                         onClick={props.closeMenu}
                     >
