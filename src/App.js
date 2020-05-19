@@ -17,7 +17,7 @@ function App(props) {
   const [authTokens, setAuthTokens] = useState(sessionStorage.getItem('tokens') || '');
     
   const setTokens = (data) => {
-    /*let sessionToken = sessionStorage.getItem('tokens') || ''
+    /*let sessionToken = sessionStorage.getItem('tokens') || '' 
     console.log("setTokens,data:"+data+",sessionToken:"+sessionToken)*/
     sessionStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
