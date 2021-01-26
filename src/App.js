@@ -12,20 +12,26 @@ import Home from './Views/Home';
 import About from './Views/About';
 import Product from './Views/Product';
 
+const laskuri = [0];
 
 function App(props) {
   const [authTokens, setAuthTokens] = useState(sessionStorage.getItem('tokens') || '');
+  /*const [apu,setApu] = useState([0]);*/
+  /* const apu = [...laskuri] */
+  const apu = laskuri
     
   const setTokens = (data) => {
     /*let sessionToken = sessionStorage.getItem('tokens') || '' 
     console.log("setTokens,data:"+data+",sessionToken:"+sessionToken)*/
     sessionStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
-  }
+    /*setApu([apu[0]+1]);*/
+    apu[0] += 1;
+    }
 
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-      {/*console.log("Provider,authTokens:"+authTokens)*/}
+      {console.log("Provider,authTokens:",authTokens,",apu:"+apu)}
       <div className="relative pb-10 min-h-screen">
       <Router>
         <Header />
