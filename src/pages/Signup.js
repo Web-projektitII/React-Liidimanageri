@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import logoImg from "../img/omnia_logo.png";
-import { Card, Logo, Error, Form, Input, Button } from "../components/AuthForms";
+import { Card, Logo, Error, Input, Button } from "../components/AuthForms";
 import { ErrorX } from "../components/Formfields";
 import { useForm, useform } from "react-hook-form";
-import { FormGroup, Label, FormText } from 'reactstrap';
+import { FormGroup, Form, Label, FormText } from 'reactstrap';
 
 
 function Signup(props) {
@@ -57,7 +57,7 @@ function Signup(props) {
   return (
     <Card>
       <Logo src={logoImg} />
-      <Form>
+      <Formon onSubmit={handleSubmit(data => postSignup(data))}>
         <Input 
           name="email" 
           type="email" 
@@ -107,7 +107,7 @@ function Signup(props) {
           ref={register()}
           placeholder="password again" />
         {/* <Button onClick={postSignup}>Sign Up</Button> */}
-        <Button type="submit" onClick={handleSubmit(data => postSignup(data))}>Sign Up</Button>
+        <Button type="submit">Sign Up</Button>
       </Form>
       <Link to="/login">Already have an account?</Link>
       { isError && <Error>The username or password provided were incorrect!</Error> }
