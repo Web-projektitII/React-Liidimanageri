@@ -8,5 +8,5 @@ export function InputX({ register, name, ...rest }) {
 export function ErrorX({ errors }) {
     let message = errors ? errors: "Ei virhettä"
     console.log("error:",message)
-    return <Error>{errors ? errors.message : " "}</Error>;
+    return <Error>{errors?.message}</Error>;
    }

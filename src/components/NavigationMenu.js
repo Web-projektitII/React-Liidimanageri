@@ -5,50 +5,50 @@ import {PrivateLink,PublicLink} from '../Links';
 function NavigationMenu(props){
     return (
         <div>
-            <div className="font-bold py-3">
+            <div className="sm:hidden font-bold">
                 AppName
             </div>
-            <ul>
-                <li>
+            <ul className="flex flex-col sm:flex-row mb-0 list-none lg:ml-auto">
+                <li className="sm:px-2">
                     <Link 
                         to="/" 
-                        className="text-blue-500 py-3 border-t border-b block"
+                        className="text-blue-500 py-2 border-t border-b sm:border-0 block"
                         onClick={props.closeMenu}
                     >
                         Home
                     </Link>
                 </li>
-                <li>
+                <li className="sm:px-2">
                     <Link 
                         to="/react-liidimanageri/about" 
-                        className="text-blue-500 py-3 border-b block"
+                        className="text-blue-500 py-2 border-b sm:border-0 block"
                         onClick={props.closeMenu}
                     >
                         About
                     </Link>
                 </li>
-                <li>
+                <li className="sm:px-2">
                     <PublicLink 
                         to="/login" 
-                        className="text-blue-500 py-3 border-b block"
+                        className="text-blue-500 py-2 border-b sm:border-0 block"
                         onClick={props.closeMenu}
                     >
                         Login
                     </PublicLink>
                 </li>
-                <li>
+                <li className="sm:px-2">
                     <PublicLink 
                         to="/signup" 
-                        className="text-blue-500 py-3 border-b block"
+                        className="text-blue-500 py-2 border-b sm:border-0 block"
                         onClick={props.closeMenu}
                     >
                         Signup 
                     </PublicLink>
                 </li>
-                <li>
+                <li className="sm:px-2">
                     <PrivateLink 
                         to="/admin" 
-                        className="text-blue-500 py-3 border-b block"
+                        className="text-blue-500 py-2 border-b sm:border-0 block"
                         onClick={props.closeMenu}
                     >
                         Administraattori 

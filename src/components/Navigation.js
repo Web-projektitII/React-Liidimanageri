@@ -21,13 +21,17 @@ function Navigation(){
     })
 
     return (
-        <nav>
-            <span className="text-xl">
+        <nav className py-0>
+            <span className="text-xl sm:hidden">
                 <FontAwesomeIcon 
                     icon={faBars}
                     onClick={() => setShowMenu(!showMenu)}
                 />
             </span>
+
+            <div className="hidden sm:block">
+                <NavigationMenu/>
+            </div>
 
             {
                 maskTransitions.map(({ item, key, props }) =>

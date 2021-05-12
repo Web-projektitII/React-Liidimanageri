@@ -14,6 +14,7 @@ const Form = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 210px;
 `;
 
 const Input = styled.input`
