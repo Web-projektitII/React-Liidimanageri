@@ -14,7 +14,6 @@ const Form = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-width: 210px;
 `;
 
 const Input = styled.input`
@@ -42,7 +41,7 @@ const Logo = styled.img`
 `;
 
 const Error = styled.div`
-  background-color: red;
+  color: red;
 `;
 
 export { Form, Input, Button, Logo, Card, Error };

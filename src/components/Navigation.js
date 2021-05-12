@@ -21,7 +21,7 @@ function Navigation(){
     })
 
     return (
-        <nav className py-0>
+        <nav>
             <span className="text-xl sm:hidden">
                 <FontAwesomeIcon 
                     icon={faBars}

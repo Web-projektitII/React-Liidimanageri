@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import logoImg from "../img/omnia_logo.png";
@@ -11,16 +11,11 @@ import { FormGroup, Form, Input, Label, FormText } from 'reactstrap';
 function Signup(props) {
   const [isSignedUp, setSignedUp] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
-
-  /* Huom. lomakkeen validoinnin jälkeen oletuksena on siirtyminen onChange-
+   /* Huom. lomakkeen validoinnin jälkeen oletuksena on siirtyminen onChange-
      validointiin, mikä olisi häiritsevää jokaisen merkin kirjoittamisen yhteydessä */
-  /*const { register, errors, handleSubmit } = useForm({reValidateMode: 'onBlur'});*/
-  const { register, errors, handleSubmit } = useForm({reValidateMode: 'onChange'});
-
+  const { register, watch, errors, handleSubmit } = useForm({reValidateMode: 'onBlur'});
+  const password = useRef({});
+  password.current = watch("password", "");
   /* const onSubmit = data => console.log(data); */
 
   if (isSignedUp) {
@@ -34,17 +29,11 @@ function Signup(props) {
     formData.append("username", username);
     formData.append("password", password); */
     console.log("data:",data)
-    const url = "http://localhost:5000/auth/signup"
+    const url = "http://localhost:5000/auth/signup" 
     /* const url = "http://localhost/testit/response_json.php" */
     /*Huom. jos lähetetään muuttujista, niiden tulee päivittyä,
       jos lähetään react-hook-form-data, näin ei välttämättä ole.*/
-    axios.post(url, 
-      /*{email,
-      username,
-      password,
-      password2}*/
-      data
-      )
+    axios.post(url,data)
       .then(result => {
       if (result.status === 200 && result.data === "OK") {
         setSignedUp(true);
@@ -64,51 +53,29 @@ function Signup(props) {
         <Input 
           name="email" 
           type="email" 
-          /*value={email}
-          onChange={e => {
-            setEmail(e.target.value);
-            }}*/
-          innerRef={register()}
+          innerRef={register({required:"Pakollinen kenttä"})}
           placeholder="email"/>
-        {/*}  
-        <Input 
-          type="text" 
-          value={username}
-          onChange={e => {
-            setUsername(e.target.value);
-            }} 
-          placeholder="username"/>
-          */}  
+        <ErrorX errors={errors.email} />
         <Input
           name="username"
           type="text" 
-          /* value={username}
-          onChange={e => {
-            setUsername(e.target.value);
-            }} */
-          /* '^[A-Za-z][A-Za-z0-9_.]*$' */  
-          innerRef={register({ required: true, minLength:{value:3,message: "Username must be at least 3 characters"}, maxLength: 30})}  
+          innerRef={register({required:"Pakollinen kenttä", minLength:{value:3,message:"Username must be at least 3 characters"}, maxLength: 30})}  
           placeholder="username"/>
         <ErrorX errors={errors.username} />
-
         <Input 
           name="password" 
           type="password" 
-          /*value={password}
-          onChange={e => {
-            setPassword(e.target.value);
-            }}*/
-          innerRef={register()}
+          innerRef={register({required:"Pakollinen kenttä", minLength:{value:8,message:"Password must be at least 8 characters"}})}
           placeholder="password" />
+        <ErrorX errors={errors.password} />
         <Input 
           name="password2" 
           type="password" 
-          /*value={password2}
-          onChange={e => {
-            setPassword2(e.target.value);
-            }}*/
-          innerRef={register()}
+          innerRef={register({
+            validate: value => value === password.current || "The passwords do not match"
+            })}
           placeholder="password again" />
+        <ErrorX errors={errors.password2} />  
         {/* <Button onClick={postSignup}>Sign Up</Button> */}
         <Button type="submit">Sign Up</Button>
       </Form>
