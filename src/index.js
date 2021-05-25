@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './tailwind.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './site.css';
 
 ReactDOM.render(
     <React.StrictMode>

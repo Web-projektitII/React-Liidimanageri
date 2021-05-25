@@ -1,0 +1,5 @@
+form {
+    /* Muotoile Reactstrap Form yhtä leveäksi kuin Styled Components Form */
+    disply:flex;
+    width:100%;
+    }

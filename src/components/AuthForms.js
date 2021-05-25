@@ -41,7 +41,7 @@ const Logo = styled.img`
 `;
 
 const Error = styled.div`
-  background-color: red;
+  color: red;
 `;
 
 export { Form, Input, Button, Logo, Card, Error };
