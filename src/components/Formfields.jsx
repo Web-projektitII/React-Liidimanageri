@@ -10,3 +10,4 @@ export function ErrorX({ errors }) {
     console.log("error:",message)
     return <Error>{errors?.message}</Error>;
    }
+   
