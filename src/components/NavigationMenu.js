@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import {BrowserRouter as Router, Link} from "react-router-dom"
 import {PrivateLink,PublicLink} from '../Links';
 
 function NavigationMenu(props){
@@ -20,7 +20,7 @@ function NavigationMenu(props){
                 </li>
                 <li className="sm:px-2">
                     <Link 
-                        to="/react-liidimanageri/about" 
+                        to="/about" 
                         className="text-blue-500 py-2 border-b sm:border-0 block"
                         onClick={props.closeMenu}
                     >

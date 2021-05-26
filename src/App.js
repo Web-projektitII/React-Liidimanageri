@@ -33,7 +33,7 @@ function App(props) {
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       {console.log("Provider,authTokens:",authTokens,",apu:"+apu)}
       <div className="relative pb-10 min-h-screen">
-      <Router>
+      <Router basename="/react-liidimanageri">
         <Header />
         <div className="p-3">
           <Switch>
