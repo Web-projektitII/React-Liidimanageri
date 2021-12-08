@@ -1,6 +1,6 @@
 import React from 'react'
-import {BrowserRouter as Router, Link} from "react-router-dom"
-import {PrivateLink,PublicLink} from '../Links';
+import { Link } from "react-router-dom"
+import { PrivateLink,PublicLink } from '../Links';
 
 function NavigationMenu(props){
     return (

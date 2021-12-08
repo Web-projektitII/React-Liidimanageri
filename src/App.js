@@ -21,9 +21,8 @@ function App(props) {
   const apu = laskuri
     
   const setTokens = (data) => {
-    /*let sessionToken = sessionStorage.getItem('tokens') || '' 
-    console.log("setTokens,data:"+data+",sessionToken:"+sessionToken)*/
-    sessionStorage.setItem("tokens", JSON.stringify(data));
+    if (data) sessionStorage.setItem("tokens", JSON.stringify(data));
+    else sessionStorage.removeItem("tokens");
     setAuthTokens(data);
     /*setApu([apu[0]+1]);*/
     apu[0] += 1;
@@ -38,7 +37,7 @@ function App(props) {
         <div className="p-3">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/react-liidimanageri/about" component={About} />
+            <Route path="/about" component={About} />
             <Route path="/products/:id" component={Product} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />

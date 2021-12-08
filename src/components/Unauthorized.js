@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Unauthorized.scss';
+//import '../Unauthorized.scss';
+//vaatisi node v14, ei toimi node v16
 
 const Unauthorized = () => {
   return (

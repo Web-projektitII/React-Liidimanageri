@@ -5,7 +5,8 @@ import logoImg from "../img/omnia_logo.png";
 import { Card, Logo, Error, Button } from "../components/AuthForms";
 import { ErrorX } from "../components/Formfields";
 import { useForm } from "react-hook-form";
-import { FormGroup, Form, Input, Label, FormText } from 'reactstrap';
+//import { FormGroup, Form, Input, Label, FormText } from 'reactstrap';
+import { Form, Input } from 'reactstrap';
 
 
 function Signup(props) {
